@@ -55,14 +55,14 @@ from pprint import pprint
 
 # [Firebase Key and initialize]
 config = {
-    'apiKey': "AIzaSyBpkQ9Y6UitaltQIeMkIqI5xcAbxJvF0qM",
-    'authDomain': "leasetransfersite.firebaseapp.com",
-    'databaseURL': "https://leasetransfersite.firebaseio.com",
-    'projectId': "leasetransfersite",
-    'storageBucket': "leasetransfersite.appspot.com",
-    'messagingSenderId': "74227457009",
-    'appId': "1:74227457009:web:c2859ae458b610949b8250",
-    'measurementId': "G-GNW0HEQ5RK"
+    'apiKey': "Your-own-apiKey",
+    'authDomain': "Your-own-authDomain",
+    'databaseURL': "Your-own-databaseURL",
+    'projectId': "Your-own-projectId",
+    'storageBucket': "Your-own-storageBucket",
+    'messagingSenderId': "Your-own-messagingSenderId",
+    'appId': "Your-own-appId",
+    'measurementId': "Your-own-measurementId"
 }
 firebase = pyrebase.initialize_app(config) # [initialize with pyrebase using firebase key]
 
@@ -79,14 +79,14 @@ auth = firebase.auth()
 # [Firestore db]
 cred = credentials.Certificate('service_key.json') #credentials
 firebase_admin.initialize_app(cred, {
-    'apiKey': 'AIzaSyBpkQ9Y6UitaltQIeMkIqI5xcAbxJvF0qM',
-    'authDomain': 'leasetransfersite.firebaseapp.com',
-    'databaseURL': 'https://leasetransfersite.firebaseio.com',
-    'projectId': 'leasetransfersite',
-    'storageBucket': 'leasetransfersite.appspot.com',
-    'messagingSenderId': '74227457009',
-    'appId': '1:74227457009:web:c2859ae458b610949b8250',
-    'measurementId': 'G-GNW0HEQ5RK'
+    'apiKey': 'Your-own-apiKey',
+    'authDomain': 'Your-own-authDomain',
+    'databaseURL': 'Your-own-databaseURL',
+    'projectId': 'Your-own-projectId',
+    'storageBucket': 'Your-own',
+    'messagingSenderId': 'Your-own-messagingSenderId',
+    'appId': 'Your-own-appId',
+    'measurementId': 'Your-own-measurementId'
 })
 db = firestore.client()
 # [Firestore db]
@@ -397,38 +397,6 @@ def forgotPassword():
         return redirect(url_for('home'))
     return render_template('forgotPassword.html')
 
-#can be deleted
-@app.route('/guesthome', methods=['GET', 'POST'])
-def guesthome():
-    logo = storage.child("logo.jpg").get_url(None)
-
-    if not('user' in session):
-        objArray = []
-
-        if request.method == 'POST':
-            if request.form['apartmentChoice'] == 'StudioApartments':
-                objArray = searchSuggestedData("StudioApartments")
-            elif request.form['apartmentChoice'] == 'ApartmentsForCouple':
-                objArray = searchSuggestedData("ApartmentsForCouple")
-            elif request.form['apartmentChoice'] == 'ApartmentsForFamilyWithKids':
-                objArray = searchSuggestedData("ApartmentsForFamilyWithKids")
-            elif request.form['apartmentChoice'] == 'ApartmentsWithGym':
-                objArray = searchSuggestedData("ApartmentsWithGym")
-            elif request.form['apartmentChoice'] == 'LuxuryApartmentsPenthouses':
-                objArray = searchSuggestedData("LuxuryApartmentsPenthouses")
-            elif request.form['apartmentChoice'] == 'Townhouses':
-                objArray = searchSuggestedData("Townhouses")
-            else:
-                objArray = getAllData() # [Get the whole list first]
-                #searchData(request.form['apartmentChoice'])
-                print(request.form['apartmentChoice'])
-        
-        table = OwnAds(objArray)
-        table.border = True
-        table.no_items = ""
-        return render_template('guesthome.html', user='guest', table=table, logo=logo)
-
-    return redirect(url_for('home'))
 
 @app.route('/home', methods=['PUT', 'POST', 'GET', 'PATCH'])
 def home():
@@ -512,13 +480,11 @@ def before_request():
 def logout():
     session.pop('user', None)
     return index()
-    #return render_template('guesthome.html')
-
 # ==========[Function to route around]==========
 
 
-# ==========[Supporting function]==========
 
+# ==========[Supporting function]==========
 #to append data
 def appendData(leaseTitle, size, provinces, city, address, contractLength, description, tel, email, availability, user_session_email):
     
@@ -558,7 +524,6 @@ def appendData(leaseTitle, size, provinces, city, address, contractLength, descr
 
 def getSpecificUserData(user_email):
 
-####====
     objArray = []
     refobjArray = getAllData()
 
@@ -847,10 +812,6 @@ def searchSuggestedData(keyword):
     return objArray
 # [Search suggested data]
 
-# [In-site keyword search]
-#TODO later
-# [In-site keyword search]
-
 # [Copy all data to an array]
 def getAllData():
 
@@ -887,21 +848,6 @@ def getAllData():
 
     return objArray
 # [Copy all data to an array]
-
-# [Upload Images]
-def uploadPhoto(userIDStr, file):
-    #https://www.programcreek.com/python/example/51528/flask.request.files
-    path = 'gs://leasetransfersite.appspot.com'+str(secure_filename(file.filename))
-    if file: 
-        try:
-            bucket = firebase.storage_bucket()
-            #file is just an object from request.files e.g. file = request.files['myFile']
-            blob = bucket.blob(file.filename)
-            blob.upload_from_file(file)
-        except Exception as e:
-            print('error uploading user photo: ' % e)            
-# [Upload Images]
-
 
 # [abstract table for printing]
 class OwnAds(Table):

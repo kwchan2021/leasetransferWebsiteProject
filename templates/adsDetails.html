@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> {{title}} | LEASE. - Find The Best Lease.</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <table class="userMenu">
+            <tr>
+                <td>
+                    <div class="logo">
+                        <!--<img src="https://drive.google.com/file/d/11OWsc5qAV_7rWone-FXVZkNLq4WhIJdZ/view?usp=sharing" alt="logo" width="100px">-->
+                        <img src="{{logo}}" alt="logo" width="100px">
+                        <!--<img src="logo.jpg" alt="logo" width="100px">-->
+                        <!--<image href="{{ url_for('static', filename='logo.jpg') }}" width="100px">-->
+                    </div>
+                </td>
+                <td>
+                    <a href="/home">
+                        <div>Home</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsSearch" onclick="window.location='/adsSearch'">
+                        <div>Search</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsPosting" onclick="window.location='/adsPosting'">
+                        <div name="postingAds">Post</div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    <div class="userloggeding">
+        {{msg}}
+        {{user}}
+        {{msg1}}
+    </div>
+
+    <div class="adsDetails_table">
+        <table class="adsDetails">
+            <tr>
+                <td>{{title}}</td>
+            </tr>
+
+            <tr>
+                <td>{{email}}</td>
+            </tr>
+
+            <tr>
+                <td>{{postedAt}}</td>
+            </tr>
+
+            <tr>
+                <td>Size: {{size}}</td>
+            </tr>
+
+            <tr>
+                <td>Province: {{province}}</td>
+            </tr>
+
+            <tr>
+                <td>City: {{city}}</td>
+            </tr>
+
+            <tr>
+                <td>Address: {{address}}</td>
+            </tr>
+
+            <tr>
+                <td>Contract Length: {{contractLength}}</td>
+            </tr>
+
+            <tr>
+                <td>Description: {{description}}</td>
+            </tr>
+
+            <tr>
+                <td>Tel: {{tel}}</td>
+            </tr>
+
+            <tr>
+                <td>Availability: {{availability}}</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Apartment Floor Plan Sample</div>
+                    <img src="{{img}}" alt="apartment" width="100px">
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

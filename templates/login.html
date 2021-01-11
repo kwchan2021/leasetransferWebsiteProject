@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | LEASE. - Find The Best Lease.</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <table class="userMenu">
+            <tr>
+                <td>
+                    <div class="logo">
+                        <!--<img src="https://drive.google.com/file/d/11OWsc5qAV_7rWone-FXVZkNLq4WhIJdZ/view?usp=sharing" alt="logo" width="100px">-->
+                        <img src="{{logo}}" alt="logo" width="100px">
+                        <!--<img src="logo.jpg" alt="logo" width="100px">-->
+                        <!--<image href="{{ url_for('static', filename='logo.jpg') }}" width="100px">-->
+                    </div>
+                </td>
+                <td>
+                    <a href="/home">
+                        <div>Home</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsSearch" onclick="window.location='/adsSearch'">
+                        <div>Search</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsPosting" onclick="window.location='/adsPosting'">
+                        <div name="postingAds">Post</div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+	<div class="loginContainter">
+    
+		<form method="POST" class="loginForm">
+			
+			<table class="loginFormTable">
+				<tr>
+					<td>
+						<div>
+							<div>Login to your Lease. Account</div>
+						</div>
+	
+						<div>
+							<input type="email" name="email" placeholder="Email">
+						</div>
+	
+						<div>
+							<input type="password" name="password" placeholder="Password">
+						</div>
+	
+						<div>
+							<input type="submit" name="submit" value="Login">
+                        </div>
+                        
+                        <div>
+                            <a href="/forgotPassword">Forgot Password</a>
+                        </div>
+					</td>
+		
+				</tr>
+	
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

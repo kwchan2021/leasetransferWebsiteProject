@@ -1,0 +1,538 @@
+/*general*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    /*background-color: rgb(233, 233, 233);*/
+    background-color: white;
+}
+
+textarea{
+    resize: none;
+}
+
+/*guest header*/
+.header{
+    background-color: inherit;
+    border-bottom: 1px solid rgb(172, 172, 172);
+    width:100%;
+}
+.logo{
+    margin-left: 0%;
+}
+
+.logo img{
+    margin-top: 0.5%;
+}
+
+.banner{
+    border: 3px solid black;
+    color: black;
+    text-align: center;
+}
+.guestMenu{
+    width: 100%;
+}
+.guestMenu td:first-child{
+    border: transparent;
+    background-color: transparent;
+}
+.guestMenu td{
+    border: 5px solid black;
+    border-radius: 5px;
+    color: black;
+    width: 25%;
+    text-align: center;
+    color: black;
+    font-style: bold;
+    font-size: 30px;
+    background-color: yellowgreen;
+}
+.guestMenu td a, .guestMenu td a div{
+    color: black;
+    text-decoration: none;
+}
+/*guest header*/
+
+/*user header*/
+.header{
+    background-color: inherit;
+}
+.header .userMenu{
+    margin: 0 auto;
+}
+
+.userMenu{
+    width: 50%;
+}
+.userMenu td:nth-child(1){
+    border: transparent;
+    background-color: transparent;
+    text-align: left;
+    width: 25%;
+}
+.userMenu td:nth-child(1):hover{
+    border: transparent;
+    background-color: transparent;
+    text-align: left;
+    width: 25%;
+}
+.userMenu td{
+    /*
+    border: solid 2px black;
+    border-radius: 5px;
+    
+    background-color: rgb(194, 194, 194);*/
+    text-align: center;
+    width: 20%;
+}
+.userMenu td:hover{
+    /*background-color: rgb(223, 223, 223);*/
+    background-color: rgb(194, 194, 194);
+}
+.userMenu td a{
+    text-decoration: none;
+}
+.userMenu td a div{
+    color: black;
+    font-size: 20px;
+}
+/*user header*/
+
+/*general*/
+
+
+
+
+/* ads.html */
+.adsContainer{
+    padding: 30px;
+}
+.adsContainer table{
+    border: transparent;
+    margin: 0 auto;
+}
+
+.adsContainer table tr:nth-child(even){
+    background-color: rgb(154, 240, 255);
+}
+.adsContainer table th{
+    background-color: rgb(154, 240, 255);
+}
+
+.adsContainer table th,
+.adsContainer table td{
+    padding: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: black;
+    width: 30px;
+    border: none;
+}
+.adsContainer table th:first-child,
+.adsContainer table td:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.adsContainer table th:last-child,
+.adsContainer table td:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.adsContainer table td input{
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0000EE;
+}
+.adsContainer table tr:nth-child(even) input{
+    background-color: rgb(154, 240, 255);
+}
+.adsContainer table tr:nth-child(odd) input{
+    background-color:white;
+}
+/* ads.html */
+
+/* adsPosting.html */
+.header{
+    background-color: inherit;
+}
+.logo{
+    margin-left: 3%;
+}
+
+.logo img{
+    margin-top: 0.5%;
+}
+
+.banner{
+    border: 3px solid black;
+    color: black;
+    text-align: center;
+}
+.guestMenu{
+    width: 100%;
+}
+.guestMenu td:first-child{
+    border: transparent;
+    background-color: transparent;
+}
+.guestMenu td{
+    border: 5px solid black;
+    border-radius: 5px;
+    color: black;
+    width: 25%;
+    text-align: center;
+    color: black;
+    font-style: bold;
+    font-size: 30px;
+    background-color: yellowgreen;
+}
+
+/*Need edit above*/
+
+/*the form*/
+
+/*general*/
+#adsSearchinputForm{
+    padding-top: 2%;
+}
+
+#adsSearchinputForm .adsSearchForm{
+    margin: 0 auto;
+    
+    width: 50%;
+    border: solid 3px rgb(153, 153, 153);
+    border-radius: 5px;
+    background-color: rgb(153, 153, 153);
+}
+
+#adsSearchinputForm .adsSearchForm td{
+    width: 50%;
+
+    padding-left: 5%;
+    padding-right: 6.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+
+#adsSearchinputForm .adsSearchForm td select{
+    border: black solid 1px;
+    
+    padding: 10px;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    width: 100%;
+    
+}
+
+#adsSearchinputForm .adsSearchForm td input[type="submit"]{
+    border: solid 1px black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+
+    /*to align with select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with select*/
+}
+
+
+#adsPostinginputForm{
+    padding-top: 2%;
+}
+
+#adsPostinginputForm .adsPostingForm{
+    margin: 0 auto;
+
+    border: solid 3px rgb(153, 153, 153);
+    border-radius: 0px;
+    text-align: center;
+    background-color: rgb(153, 153, 153);
+}
+#adsPostinginputForm .adsPostingForm td{
+    padding-left: 5%;
+    padding-right: 6.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+
+#adsPostinginputForm .adsPostingForm td div{
+    padding-bottom: 1%;
+    color: black;
+    text-align: left;
+}
+
+#adsPostinginputForm .adsPostingForm td input{
+    color: black;
+    border: solid 1px black;
+    padding: 10px;
+    width: 100%;
+
+    /*to align with select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with select*/
+}
+#adsPostinginputForm .adsPostingForm td :-ms-input-placeholder{
+    color: grey;
+}
+
+#adsPostinginputForm .adsPostingForm td input[type="submit"]{
+    border: solid 1px black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+
+    /*to align with select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with select*/
+}
+#adsPostinginputForm .adsPostingForm td input[type="submit"]:hover{
+    border: solid 1px white;
+    background-color: black;
+}
+#adsPostinginputForm .adsPostingForm td input[type="file"]{
+    background-color: white;
+}
+#adsPostinginputForm .adsPostingForm td select{
+    padding: 10px;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    width: 100%;
+
+    /*to align with input*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with input*/
+}
+#adsPostinginputForm .adsPostingForm td textarea{
+    border-radius: 0px;
+    border: solid 1px black;
+    padding: 10px;
+    width: 100%;
+
+    /*to align with input, select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with input, select*/
+}
+
+
+
+/*general*/
+
+
+/*the form*/
+
+
+/* adsPosting.html */
+
+/* createAccount.html */
+.errorMsg{
+    color: red;
+}
+.createAccountForm{
+    width: 100%;
+    padding-top: 70px;
+}
+.createAccountForm .createAccountFormTable{
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    border-right: rgb(192, 192, 192) solid 1px;
+    border-bottom:  rgb(192, 192, 192) solid 1px;
+    width: 80%;
+    padding: 30px;
+}
+.createAccountForm td{
+    width: 50%;
+    padding: 0px;
+    text-align: center;
+}
+.createAccountForm td:nth-child(2){
+    text-align: center;
+    border-left: gray 1px dotted;
+}
+.createAccountForm td div{
+    padding: 5px;
+}
+.createAccountForm td div div{
+    text-align: center;
+}
+.createAccountForm td div input{
+    color: black;
+    border: solid 1px black;
+    padding: 10px;
+    width: 80%;
+    justify-content: center;
+    
+    /*to align with select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with select*/
+}
+.createAccountForm td div input:hover{
+    border: solid 1px rgb(0, 140, 255);
+}
+/* createAccount.html */
+
+/* guesthome.html */
+
+/* guesthome.html */
+
+/* login.html */
+.loginForm{
+    width: 100%;
+    padding-top: 70px;
+}
+.loginForm .loginFormTable{
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    border-right: rgb(192, 192, 192) solid 1px;
+    border-bottom:  rgb(192, 192, 192) solid 1px;
+    width: 50%;
+    padding: 30px;
+}
+.loginForm td{
+    width: 50%;
+    padding: 0px;
+    text-align: center;
+}
+.loginForm td div{
+    padding: 5px;
+}
+.loginForm td div div{
+    text-align: center;
+}
+.loginForm td div input{
+    color: black;
+    border: solid 1px black;
+    padding: 10px;
+    width: 50%;
+    justify-content: center;
+    
+    /*to align with select*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*to align with select*/
+}
+.loginForm td div input:hover{
+    border: solid 1px rgb(0, 140, 255);
+}
+/* login.html */
+
+/* home.html */
+.userloggeding{
+    padding: 5px;
+    float: right;
+    text-decoration: underline black;
+}
+.userhomeTableContainer{
+    background-color: inherit;
+    width: 100%;
+}
+.userhomeTableContainer h1{
+    justify-content: center;
+    width: 100%;
+}
+.userhomeTableContainer .userhomeTable1{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+.userhomeTableContainer .userhomeTable2{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+.adsSearch{
+    width: 500px;
+    padding: 15px;
+}
+.aptSearch{
+    list-style-type: none;
+}
+
+.aptSearch li{
+    margin: 5px;
+    text-align: center;
+    float: left;
+    justify-content: center;
+    display: flex;
+}
+
+
+.aptSearch{
+    list-style-type: none;
+}
+.aptSearch li input{
+    /*border: solid rgb(82, 82, 82) 1px;*/
+    border-radius: 50px;
+    background-color: white;
+    margin: 5px;
+    text-align: center;
+    float: left;
+    padding: 20px;
+}
+.aptSearch li input:hover{
+    border: solid rgb(25, 67, 252) 1px;
+}
+
+.splitContainer{
+    background-color: inherit;
+}
+.split{
+    padding: 5px;
+    border-bottom: black solid 1px;
+    width: 70%;
+    margin: 0px auto;
+}
+/* home.html */
+
+/* adsSearch.html */
+
+/* adsSearch.html */
+
+/* adsDetails.html */
+.adsDetails_table{
+    padding-top: 35px;
+}
+.adsDetails{
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: rgb(203, 243, 255);
+}
+.adsDetails td{
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 10px;
+}
+.adsDetails td:nth-child(1){
+    font-size: larger;
+}
+.adsDetails td:nth-child(2){
+    color:rgb(172, 172, 172);
+    font-size: smaller;
+}
+.adsDetails td:nth-child(3){
+    color:rgb(172, 172, 172);
+    font-size: smaller;
+}
+.adsDetails td img{
+    width: 500px;
+}
+/* adsDetails.html */

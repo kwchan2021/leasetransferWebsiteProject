@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Posting New Ads | LEASE. - Find The Best Lease.</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <table class="userMenu">
+            <tr>
+                <td>
+                    <div class="logo">
+                        <!--<img src="https://drive.google.com/file/d/11OWsc5qAV_7rWone-FXVZkNLq4WhIJdZ/view?usp=sharing" alt="logo" width="100px">-->
+                        <img src="{{logo}}" alt="logo" width="100px">
+                        <!--<img src="logo.jpg" alt="logo" width="100px">-->
+                        <!--<image href="{{ url_for('static', filename='logo.jpg') }}" width="100px">-->
+                    </div>
+                </td>
+                <td>
+                    <a href="/home">
+                        <div>Home</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsSearch" onclick="window.location='/adsSearch'">
+                        <div>Search</div>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/adsPosting" onclick="window.location='/adsPosting'">
+                        <div name="postingAds">Post</div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    <div class="userloggeding">Welcome back, {{user}} <a href="/logout">(logout)</a></div>
+
+    <form id="adsPostinginputForm" method="POST" onSubmit={onSubmit}>
+        <!--TODO Validation-->
+
+        <table class="adsPostingForm">
+            <tr>
+                <td>
+                    <div>Title</div>
+                    <input type="text" placeholder="Title" name="inputLeaseTitle">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Size</div>
+                    <select id="inputSize" name="inputSize">
+                        <option disabled selected>Select the size</option>
+                        <option>1.5</option>
+                        <option>2.5</option>
+                        <option>3.5</option>
+                        <option>4.5</option>
+                        <option>5.5</option>
+                        <option>House</option>
+                        <option>Townhouse</option>
+                        <option>Others</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Provinces & Territories</div>
+                    <select name="inputProvinces" id="inputProvinces">
+                        <option disabled selected>Select a province</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                    <!--Provinces & Territories-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>City</div>
+                    <select name="inputCity" id="choices">
+                        <option disabled selected>Select a city</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Address</div>
+                    <!--Address-->
+                    <input type="text" placeholder="Address" name="inputAddress">
+                    <!--Address-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Contract Length</div>
+                    <select name="inputContractLength">
+                        <option disabled selected>Select the contract length</option>
+                        <option value="1 month">1 month</option>
+                        <option value="2 months">2 months</option>
+                        <option value="3 months">3 months</option>
+                        <option value="4 months">4 months</option>
+                        <option value="5 months">5 months</option>
+                        <option value="6 months">6 months</option>
+                        <option value="7 months">7 months</option>
+                        <option value="8 months">8 months</option>
+                        <option value="9 months">9 months</option>
+                        <option value="10 months">10 months</option>
+                        <option value="11 months">11 months</option>
+                        <option value="More than 11 months">More than 11 months</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Description</div>
+                    <textarea rows="10" cols="100" placeholder="300 words max" name="inputDescription"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Contact Information</div>
+                    <input type="email" placeholder="Email Address" id="inputEmail" name="inputEmail">
+                    <input type="text" placeholder="Tel. no." id="inputTel" name="inputTel">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>Availability</div>
+                    <select id="inputAvailability" name="inputAvailability">
+                        <option disabled selected>Select availability</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" name="submit" value="Post">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='adsPosting.js') }}"> </script>

@@ -9,49 +9,6 @@ textarea{
     resize: none;
 }
 
-/*guest header*/
-.header{
-    background-color: inherit;
-    border-bottom: 1px solid rgb(172, 172, 172);
-    width:100%;
-}
-.logo{
-    margin-left: 0%;
-}
-
-.logo img{
-    margin-top: 0.5%;
-}
-
-.banner{
-    border: 3px solid black;
-    color: black;
-    text-align: center;
-}
-.guestMenu{
-    width: 100%;
-}
-.guestMenu td:first-child{
-    border: transparent;
-    background-color: transparent;
-}
-.guestMenu td{
-    border: 5px solid black;
-    border-radius: 5px;
-    color: black;
-    width: 25%;
-    text-align: center;
-    color: black;
-    font-style: bold;
-    font-size: 30px;
-    background-color: yellowgreen;
-}
-.guestMenu td a, .guestMenu td a div{
-    color: black;
-    text-decoration: none;
-}
-/*guest header*/
-
 /*user header*/
 .header{
     background-color: inherit;
@@ -98,8 +55,6 @@ textarea{
 /*user header*/
 
 /*general*/
-
-
 
 
 /* ads.html */

@@ -97,7 +97,7 @@ storage = firebase.storage()
 
 # [Flask and initialize]
 app = Flask(__name__)
-app.secret_key = 'tempKey' #dont know what is it for
+app.secret_key = 'Key'
 # [Flask and initialize]
 
 
@@ -117,7 +117,7 @@ class adsObj:
         self.availability = availability
 # [Ads obj]
 
-# [Ads obj alternative]
+# [Ads obj with user email - by_who]
 class adsObjAlt:
     def __init__(self, leaseTitle, size, provinces, city, address, contractLength, description, email, tel, availability, by_who):
         self.leaseTitle = leaseTitle
@@ -131,9 +131,9 @@ class adsObjAlt:
         self.tel = tel
         self.availability = availability
         self.by_who = by_who
-# [Ads obj alternative]
+# [Ads obj with user email - by_who]
 
-# [Ads obj with key]
+# [Ads obj with timestamp]
 class adsObjAlt_WithKey:
     def __init__(self, leaseTitle, size, provinces, city, address, contractLength, description, email, tel, availability, by_who, postedAt):
         self.leaseTitle = leaseTitle
@@ -147,9 +147,7 @@ class adsObjAlt_WithKey:
         self.tel = tel
         self.availability = availability
         self.by_who = by_who
-        # key
-        self.postedAt = postedAt # pass the key into the argument
-        # key
+        self.postedAt = postedAt # timestamp
 # [Ads obj with key]
 
 # [Global variable]
@@ -247,8 +245,6 @@ def adsDetails():
             elif obj.size == "Others":
                 img = storage.child("house.png").get_url(None)
 
-    # Search in the database
-
     if 'user' in session:   
         msg='Hi, '
         msg1=Markup('(<a href=/logout>Logout</a> / <a href="/ads">Your own ads</a>)')
@@ -278,10 +274,6 @@ def adsSearch():
             if (obj.provinces == provinces):
                 if (obj.city == city):
                     objArray.append(obj)
-
-        # [Implement later]
-        # facilities search
-        # [Implement later]
 
         adsSearchResultArray = search_adsSearchHTML(provinces, city, size)
 
@@ -356,10 +348,7 @@ def error():
         return render_template('error.html', logo=logo)
     return redirect(url_for('home'))
 
-# [Email verification]
-# [Email verification]
 
-#TODO use the email verification
 @app.route('/createAccount', methods=['GET', 'POST'])
 def createAccount():
     logo = storage.child("logo.jpg").get_url(None)
@@ -380,7 +369,6 @@ def createAccount():
                 else:
                     msg = "Password are not the same.\nCannot create account.\nPlease try again."
                     print("password not the same")
-                    #return redirect(url_for('createAccount'))
 
             except:
                 print("Fail to create account")
@@ -389,6 +377,7 @@ def createAccount():
         return render_template('createAccount.html', msg=msg, logo=logo, pic=pic)
 
     return redirect(url_for('home'))
+
 
 @app.route('/forgotPassword', methods=['GET', 'POST'])
 def forgotPassword():
@@ -405,8 +394,6 @@ def home():
 
     # Logo
     logo = storage.child("logo.jpg").get_url(None)
-    #logo = "https://drive.google.com/file/d/11OWsc5qAV_7rWone-FXVZkNLq4WhIJdZ/view?usp=sharing"
-    # Logo
 
     if request.method == 'POST':
         if request.form['apartmentChoice'] == 'StudioApartments':
@@ -450,6 +437,7 @@ def home():
     else:
         return render_template('home.html', user=Markup('Hi Guest (<a href="/login">Login</a> / <a href="/createAccount">Create Account</a>)'), table=table, logo=logo)
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     logo = storage.child("logo.jpg").get_url(None)
@@ -460,7 +448,7 @@ def login():
 
         try:
             auth.sign_in_with_email_and_password(email, password) #login
-            session['user'] = email #create session
+            session['user'] = email
             return redirect(url_for('home'))
 
         except:
@@ -469,12 +457,14 @@ def login():
 
     return render_template('login.html', logo=logo)
 
+
 @app.before_request
 def before_request():
     g.user = None
 
     if 'user' in session:
         g.user = session['user']
+
 
 @app.route('/logout')
 def logout():
@@ -510,11 +500,7 @@ def appendData(leaseTitle, size, provinces, city, address, contractLength, descr
         'tel':tel,
         'email':email,
         'availability':availability,
-        'by_who':user_session_email, #added
-
-        #unique id for contract
-        #add time stamp
-        #add index <- key        
+        'by_who':user_session_email, #added      
         'index': count, 
         'postedAt': now
     }
@@ -821,7 +807,6 @@ def getAllData():
     docs = db.collection(u'contracts').stream()
     # [Get the collection]
 
-    # [Will be O(n^2) time complexity]
     for doc in docs: # [For each loop to go to the contracts one by one]
         # [Convert the data into right format, ' -> "]
         rawData = (f'{doc.to_dict()}')
@@ -844,8 +829,6 @@ def getAllData():
         objArray.append(refObj)
         # [Store them into an array]
 
-    # [Will be O(n^2) time complexity]
-
     return objArray
 # [Copy all data to an array]
 
@@ -867,9 +850,6 @@ class OwnAds(Table):
 
 
 # ==========[Supporting function]==========
-
-
-
 
 
 # ==========[Make it run]==========

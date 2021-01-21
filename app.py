@@ -11,7 +11,7 @@ from firebase_admin import storage
 # [Firebase package]
 # [Pyrebase package]
 import pyrebase
-from getpass import getpass #what is this
+
 # [Pyrebase package]
 # [Flask API]
 from flask import(
@@ -100,8 +100,6 @@ app = Flask(__name__)
 app.secret_key = 'Key'
 # [Flask and initialize]
 
-
-
 # [Ads obj]
 class adsObj:
     def __init__(self, leaseTitle, size, provinces, city, address, contractLength, description, email, tel, availability):
@@ -177,7 +175,6 @@ def ads():
         if request.method == 'POST':
             globalTitle = request.form['apartmentChoice']
             return redirect(url_for('adsDetails'))
-
 
         return render_template('ads.html', user=session['user'], table=table, logo=logo)
 
@@ -308,7 +305,6 @@ def adsSearchResult():
     else:
         return render_template('adsSearchResult.html', user=Markup('Hi Guest (<a href="/login">Login</a> / <a href="/createAccount">Create Account</a>)'), table=table, logo=logo)
 
-
 @app.route('/adsPosting', methods=['GET', 'POST'])
 def adsPosting():
     logo = storage.child("logo.jpg").get_url(None)
@@ -348,7 +344,6 @@ def error():
         return render_template('error.html', logo=logo)
     return redirect(url_for('home'))
 
-
 @app.route('/createAccount', methods=['GET', 'POST'])
 def createAccount():
     logo = storage.child("logo.jpg").get_url(None)
@@ -363,12 +358,11 @@ def createAccount():
 
             try:
                 if(password == cpassword):
-                    #auth.send_email_verification(email, password)
                     auth.create_user_with_email_and_password(email, password) #login
                     return redirect(url_for('home'))
                 else:
                     msg = "Password are not the same.\nCannot create account.\nPlease try again."
-                    print("password not the same")
+                    print(msg)
 
             except:
                 print("Fail to create account")
@@ -378,14 +372,12 @@ def createAccount():
 
     return redirect(url_for('home'))
 
-
 @app.route('/forgotPassword', methods=['GET', 'POST'])
 def forgotPassword():
     if request.method == 'POST':
         email = email = request.form['email']
         return redirect(url_for('home'))
     return render_template('forgotPassword.html')
-
 
 @app.route('/home', methods=['PUT', 'POST', 'GET', 'PATCH'])
 def home():
@@ -437,7 +429,6 @@ def home():
     else:
         return render_template('home.html', user=Markup('Hi Guest (<a href="/login">Login</a> / <a href="/createAccount">Create Account</a>)'), table=table, logo=logo)
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     logo = storage.child("logo.jpg").get_url(None)
@@ -457,7 +448,6 @@ def login():
 
     return render_template('login.html', logo=logo)
 
-
 @app.before_request
 def before_request():
     g.user = None
@@ -465,14 +455,11 @@ def before_request():
     if 'user' in session:
         g.user = session['user']
 
-
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return index()
 # ==========[Function to route around]==========
-
-
 
 # ==========[Supporting function]==========
 #to append data
@@ -506,7 +493,6 @@ def appendData(leaseTitle, size, provinces, city, address, contractLength, descr
     }
     name = "-".join(leaseTitle.split())
     db.collection(u'contracts').document(name).set(data)
-
 
 def getSpecificUserData(user_email):
 
@@ -543,7 +529,6 @@ def getSpecificUserData(user_email):
          objArray.append(finalObj)
 
     return objArray
-
 
 # [Search for adsSearch.html]
 def search_adsSearchHTML(provinces, city, size):
@@ -582,7 +567,6 @@ def search_adsSearchHTML(provinces, city, size):
                     objArray.append(finalObj)
 
     return objArray
-
 # [Search for adsSearch.html]
 
 # [Search suggested data]
@@ -848,9 +832,7 @@ class OwnAds(Table):
     availability = Col('Availability')
 # [abstract table for printing]
 
-
 # ==========[Supporting function]==========
-
 
 # ==========[Make it run]==========
 if __name__ == '__main__':
